@@ -15,25 +15,25 @@
 ```
 .
 ├── README.md
-├── data
+├── db_data
+│   └── mysql
+├── docker
+│   ├── docker-compose.yml
+│   ├── logs
+│   │   └── nginx
 │   ├── mysql
-│   └── public
-│       └── index.php
-└── docker
-    ├── docker-compose.yml
-    ├── logs
-    │   └── nginx
-    ├── mysql
-    │   ├── Dockerfile
-    │   ├── docker-entrypoint-initdb.d
-    │   └── mysql.cnf
-    ├── nginx
-    │   ├── Dockerfile
-    │   ├── default.conf
-    │   └── sites
-    └── php-fpm
-        ├── dockerfile
-        └── www.conf
+│   │   ├── Dockerfile
+│   │   ├── docker-entrypoint-initdb.d
+│   │   └── mysql.cnf
+│   ├── nginx
+│   │   ├── Dockerfile
+│   │   ├── default.conf
+│   │   └── sites
+│   └── php-fpm
+│       ├── dockerfile
+│       └── www.conf
+└── public
+    └── index.php
 ```
 
 ### getting started
