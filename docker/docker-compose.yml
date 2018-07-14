@@ -24,7 +24,7 @@ services:
     ports:
       - "${NGINX_PHP_UPSTREAM_PORT}:9000"
 
-### MySQL ################################################
+## MySQL ################################################
   mysql:
     #phpmyadminのconfig.inc.phpで$hostsがdbに指定されているため使用
     container_name: db
@@ -38,7 +38,7 @@ services:
       - "${MYSQL_PORT}:3306"
     user: "1000:50"
 
-### phpMyAdmin ###########################################
+## phpMyAdmin ###########################################
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     env_file:

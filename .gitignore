@@ -1,0 +1,4 @@
+# Ignored
+/db_data
+/docker/logs
+/docker/mysql/docker-entrypoint-initdb.d
