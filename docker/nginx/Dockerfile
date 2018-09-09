@@ -1,6 +1,7 @@
 FROM nginx
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    net-tools \
     vim \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*

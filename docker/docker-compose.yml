@@ -10,6 +10,7 @@ services:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
       - ${NGINX_HOST_LOG_PATH}:/var/log/nginx
       - ${NGINX_SITES_PATH}:/etc/nginx/sites-available
+      - php-fpm-sock:/var/run/php-fpm
     ports:
       - "${NGINX_HOST_HTTP_PORT}:80"
       - "${NGINX_HOST_HTTPS_PORT}:443"
@@ -21,10 +22,11 @@ services:
      - .env
     volumes:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
+      - php-fpm-sock:/var/run/php-fpm
     ports:
       - "${NGINX_PHP_UPSTREAM_PORT}:9000"
 
-## MySQL ################################################
+### MySQL ################################################
   mysql:
     #phpmyadminのconfig.inc.phpで$hostsがdbに指定されているため使用
     container_name: db
@@ -38,7 +40,7 @@ services:
       - "${MYSQL_PORT}:3306"
     user: "1000:50"
 
-## phpMyAdmin ###########################################
+### phpMyAdmin ###########################################
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     env_file:
@@ -47,3 +49,7 @@ services:
       - /sessions
     ports:
       - "${PMA_PORT}:80"
+
+### UNIX domain socket ###################################
+volumes:
+  php-fpm-sock:
